@@ -1,0 +1,220 @@
+{
+  "dataRoles": [
+      {
+          "name": "devices",
+          "kind": "Grouping",
+          "displayName": "Device",
+          "displayNameKey": "Role_DisplayName_Device"
+      },
+      {
+          "name": "times",
+          "kind": "Grouping",
+          "displayName": "Time",
+          "displayNameKey": "Role_DisplayName_Time"
+      },
+      {
+          "name": "events",
+          "kind": "Grouping",
+          "displayName": "Events",
+          "displayNameKey": "Role_DisplayName_Events"
+      },
+      {
+        "name": "tooltips",
+        "kind": "Grouping",
+        "displayName": "Tooltips",
+        "displayNameKey": "Role_DisplayName_Tooltips"
+      },
+      {
+        "name": "color",
+        "kind": "Grouping",
+        "displayName": "Color",
+        "displayNameKey": "Role_DisplayName_Color"
+      }
+  ],
+  "objects": {
+    "eventSettings": {
+      "properties":{
+        "useCustomEventHightSettings" : {
+          "type": {"bool": true}
+        },
+        "eventHight": {
+          "type": {"numeric": true}
+        },
+        "groupEvents": {
+          "type": {"bool": true}
+        },
+        "groupSameEventsUseThreshold": {
+          "type": {"bool": true}
+        },
+        "groupSameEventsThreshold": {
+          "type": {"numeric": true}
+        }
+      }
+    },
+    "color": {
+        "properties": {
+            "useColorJson": {"type": {"bool": true}},
+            "colorJson": {"type": {"text": true}}
+        }
+    },
+    "margin": {
+        "properties": {
+            "leftMargin": {
+                "type": {"numeric": true}
+              },
+            "rightMargin": {
+                "type": {"numeric": true}
+              },
+            "topMargin": {
+                "type": {"numeric": true}
+              },
+            "bottomMargin": {  
+                "type": {"numeric": true}
+              }
+        }
+      },
+      "timeTickerSetting": {
+        "properties": {
+          "timeTickerFontSize": {
+            "type": {"numeric": true}
+          },
+          "timeTickerFormat": {
+            "type": {"text": true}
+          },
+          "tickerSpeed": {
+            "type": {"numeric": true}
+          },
+          "timeTickerRangeUse": {
+            "type": {"bool": true}
+          },
+          "timetTickerRangesPufferLeft": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "timeTickerRangesPufferRight": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "timepickerUse": {
+            "type": {
+              "bool": true
+            }
+          },
+          "timepickerStart": {
+            "type": {
+              "text": true
+            }
+          },
+          "timepickerEnd": {
+            "type": {
+              "text": true
+            }
+          }
+        }
+      },
+      "yAxis": {
+        "properties": {
+          "yAxisFontOuterShow": {
+            "type": {
+              "bool": true
+            }
+          },
+          "yAxisFontInnerSize": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "yAxisFontOuterSize": {
+            "type": {
+              "numeric": true
+            }
+          },
+          "SwitchDatesDevices": {
+            "type": {
+              "bool": true
+            }
+          }
+        }
+      }
+    },
+  "dataViewMappings": [
+    {
+        "conditions": [
+            {
+                "devices": {
+                    "min": 0,
+                    "max": 1
+                },
+                "times": {
+                    "min": 0,
+                    "max": 1
+                },
+                "events": {
+                    "min": 0,
+                    "max": 1
+                },
+                "tooltips": {
+                    "min": 0
+                },
+                "color": {
+                    "min": 0
+                }
+            }
+        ],
+        "table": {
+            "rows": {
+                "select": [
+                    {
+                        "bind": {
+                            "to": "devices"
+                        }
+                    },
+                    {
+                        "bind": {
+                            "to": "times"
+                        }
+                    },
+                    {
+                        "bind": {
+                            "to": "events"
+                        }
+                    },
+                    {
+                        "bind": {
+                            "to": "tooltips"
+                        }
+                    },
+                    {
+                        "bind": {
+                            "to": "color"
+                        }
+                    }
+                ],
+            "dataReductionAlgorithm": {
+                  "window": {
+                    "count": 30000
+                  } 
+            }
+          }
+        }
+    }
+  ],
+  "supportsKeyboardFocus": false,
+  "suppressDefaultTitle": true,
+  "supportsHighlight": true,
+  "supportsLandingPage": true,
+  "supportsEmptyDataView": false,
+  "privileges": [],
+  "sorting": {
+      "default": {}
+  },
+  "tooltips": {
+      "supportedTypes": {
+          "default": true,
+          "canvas": true
+      },
+      "roles": ["tooltips"]
+  }
+}

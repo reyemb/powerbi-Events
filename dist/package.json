@@ -1,0 +1,17 @@
+{
+		"version": "1.0.0",
+		"author": {"name":"Reyemb","email":"info@reyemb.io"},
+		"resources": [
+			{
+				"resourceId": "rId0",
+				"sourceType": 5,
+				"file": "resources/PowerBI_Events.pbiviz.json"
+			}
+		],
+		"visual": {"name":"Events","displayName":"Events","guid":"PowerBI_Events","visualClassName":"Visual","version":"1.0.0","description":"Events for PowerBI","supportUrl":"https://google.com","gitHubUrl":""},
+		"metadata": {
+			"pbivizjson": {
+				"resourceId": "rId0"
+			}
+		}
+	}

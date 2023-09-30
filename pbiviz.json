@@ -1,0 +1,25 @@
+{
+    "visual": {
+        "name": "Events",
+        "displayName": "Events",
+        "guid": "PowerBI_Events",
+        "visualClassName": "Visual",
+        "version": "1.0.0",
+        "description": "Events for PowerBI",
+        "supportUrl": "https://google.com",
+        "gitHubUrl": ""
+    },
+    "apiVersion": "5.3.0",
+    "author": {
+        "name": "Reyemb",
+        "email": "info@reyemb.io"
+    },
+    "assets": {
+        "icon": "assets/icon.png"
+    },
+    "externalJS": null,
+    "style": "style/visual.less",
+    "capabilities": "capabilities.json",
+    "dependencies": null,
+    "stringResources": []
+}
