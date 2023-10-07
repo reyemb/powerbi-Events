@@ -62,5 +62,10 @@
   "yAxisKey": "Axe Y",
   "yAxisDescriptionKey": "Paramètres pour l'axe Y",
   "FormattingKey": "Formatage",
-  "FormattingDescriptionKey": "Options de formatage générales"
+  "FormattingDescriptionKey": "Options de formatage générales",
+  "DoEventSortingSettingsKey": "Trier les événements",
+  "DoEventSortingSettingsDescriptionKey": "Trier les événements avant l'affichage",
+  "DoEventSortingGroupSettingsKey": "Trier les événements",
+  "DoEventSortingGroupSettingsDescriptionKey": "Trier les événements avant l'affichage"
+}
 }

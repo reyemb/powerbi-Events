@@ -79,10 +79,19 @@ export declare class EventCustomEventHightSettings extends formattingSettings.Gr
     descriptionKey: string;
     slices: Array<formattingSettings.Slice>;
 }
+export declare class EventSortingSettings extends formattingSettings.Group {
+    eventSorting: formattingSettings.ToggleSwitch;
+    topLevelSlice?: formattingSettings.SimpleSlice<any>;
+    name: string;
+    displayNameKey: string;
+    descriptionKey: string;
+    slices: Array<formattingSettings.Slice>;
+}
 export declare class EventSettings extends CompositeCard {
     name: string;
     displayNameKey: string;
     descriptionKey: string;
+    eventSortingSettings: EventSortingSettings;
     eventGroupingSettings: EventGroupingSettings;
     eventCustomEventHightSettings: EventCustomEventHightSettings;
     groups: formattingSettings.Group[];

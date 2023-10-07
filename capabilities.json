@@ -40,6 +40,9 @@
         "eventHight": {
           "type": {"numeric": true}
         },
+        "DoEventSorting": {
+          "type": {"bool": true}
+        },
         "groupEvents": {
           "type": {"bool": true}
         },

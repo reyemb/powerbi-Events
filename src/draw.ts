@@ -200,11 +200,22 @@ export class DrawEvents {
             threshold = 1;
             useThreshold = true;
         }
-        
-        data.sort((a, b) => a.time.getTime() - b.time.getTime());
+        console.log(data)
+        if (this.formattingSettings.eventSettings.eventSortingSettings.eventSorting.value) {
+            data.sort((a, b) => {
+              if (a.deviceId < b.deviceId) {
+                return -1;
+              }
+              if (a.deviceId > b.deviceId) {
+                return 1;
+              }
+              return a.time.getTime() - b.time.getTime();
+            });
+        } else {
+            data.sort((a, b) => a.time.getTime() - b.time.getTime());
+        }
         
         const groupedByDevice = d3.group(data, d => d.deviceId);
-        let eventBoxesSelection;
     
         groupedByDevice.forEach((deviceData, deviceId) => {
             const groupedByDate = d3.group(deviceData, d => d.time.toDateString());

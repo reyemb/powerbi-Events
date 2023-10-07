@@ -62,5 +62,10 @@
   "yAxisKey": "Eje Y",
   "yAxisDescriptionKey": "Configuraciones para el eje Y",
   "FormattingKey": "Formateo",
-  "FormattingDescriptionKey": "Opciones de formateo generales"
+  "FormattingDescriptionKey": "Opciones de formateo generales",
+  "DoEventSortingSettingsKey": "Ordenar Eventos",
+  "DoEventSortingSettingsDescriptionKey": "Ordenar eventos antes de renderizar",
+  "DoEventSortingGroupSettingsKey": "Ordenar Eventos",
+  "DoEventSortingGroupSettingsDescriptionKey": "Ordenar eventos antes de renderizar"
+}
 }

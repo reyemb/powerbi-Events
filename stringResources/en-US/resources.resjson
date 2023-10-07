@@ -73,5 +73,9 @@
   "groupSameEventsThresholdKey": "Threshold",
   "groupSameEventsThresholdDescriptionKey": "Set a threshold that specifies the maximum number of all grouped elements",
   "FormattingKey": "Formatting",
-  "FormattingDescriptionKey": "General formatting options"
+  "FormattingDescriptionKey": "General formatting options",
+  "DoEventSortingSettingsKey": "Sort Events",
+  "DoEventSortingSettingsDescriptionKey": "Sort events before rendering",
+  "DoEventSortingGroupSettingsKey": "Sort Events",
+  "DoEventSortingGroupSettingsDescriptionKey": "Sort events before rendering"
 }

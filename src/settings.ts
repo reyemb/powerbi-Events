@@ -226,15 +226,30 @@ export class EventCustomEventHightSettings extends formattingSettings.Group {
     slices: Array<formattingSettings.Slice> = [this.eventHight];
 }
 
+export class EventSortingSettings extends formattingSettings.Group {
+    public eventSorting = new formattingSettings.ToggleSwitch({
+        name: "DoEventSorting",
+        displayNameKey: "DoEventSortingSettingsKey",
+        descriptionKey: "DoEventSortingSettingsDescriptionKey",
+        value: true,
+    });
+    topLevelSlice?: formattingSettings.SimpleSlice<any> = this.eventSorting;
+    name: string = "DoEventSortingGroup";
+    displayNameKey: string = "DoEventSortingGroupSettingsKey";
+    descriptionKey: string = "DoEventSortingGroupSettingsDescriptionKey";
+    slices: Array<formattingSettings.Slice> = [this.eventSorting];
+}
+
 export class EventSettings extends CompositeCard {
     name: string = "eventSettings";
     displayNameKey: string = "eventSettingsKey";
     descriptionKey: string = "eventSettingsDescriptionKey";
     
+    public eventSortingSettings = new EventSortingSettings(Object);
     public eventGroupingSettings = new EventGroupingSettings(Object);
     public eventCustomEventHightSettings = new EventCustomEventHightSettings(Object);
 
-    groups: formattingSettings.Group[] = [this.eventGroupingSettings, this.eventCustomEventHightSettings];
+    groups: formattingSettings.Group[] = [this.eventSortingSettings, this.eventGroupingSettings, this.eventCustomEventHightSettings];
 }
 
 export class YAxisSettings extends SimpleCard {
