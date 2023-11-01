@@ -5,8 +5,8 @@ import VisualConstructorOptions = powerbiVisualsApi.extensibility.visual.VisualC
 import DialogConstructorOptions = powerbiVisualsApi.extensibility.visual.DialogConstructorOptions;
 var powerbiKey: any = "powerbi";
 var powerbi: any = window[powerbiKey];
-var PowerBI_Events: IVisualPlugin = {
-    name: 'PowerBI_Events',
+var PowerBI_Events_DEBUG: IVisualPlugin = {
+    name: 'PowerBI_Events_DEBUG',
     displayName: 'Events',
     class: 'Visual',
     apiVersion: '5.3.0',
@@ -27,6 +27,6 @@ var PowerBI_Events: IVisualPlugin = {
 if (typeof powerbi !== "undefined") {
     powerbi.visuals = powerbi.visuals || {};
     powerbi.visuals.plugins = powerbi.visuals.plugins || {};
-    powerbi.visuals.plugins["PowerBI_Events"] = PowerBI_Events;
+    powerbi.visuals.plugins["PowerBI_Events_DEBUG"] = PowerBI_Events_DEBUG;
 }
-export default PowerBI_Events;
+export default PowerBI_Events_DEBUG;

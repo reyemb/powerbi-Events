@@ -1,9 +1,10 @@
-import { formattingSettings } from "powerbi-visuals-utils-formattingmodel-community";
-import FormattingSettingsCard = formattingSettings.Card;
+import { formattingSettings } from "powerbi-visuals-utils-formattingmodel";
+import FormattingSettingsCompositeCard = formattingSettings.CompositeCard;
+import FormattingSettingsGroup = formattingSettings.Group;
 import FormattingSettingsModel = formattingSettings.Model;
-import CompositeCard = formattingSettings.CompositeCard;
-import SimpleCard = formattingSettings.SimpleCard;
-export declare class ColorSettings extends SimpleCard {
+import FormattingSettingsSimpleCard = formattingSettings.SimpleCard;
+import FormattingSettingsCards = formattingSettings.Cards;
+export declare class ColorSettings extends FormattingSettingsSimpleCard {
     useColorJson: formattingSettings.ToggleSwitch;
     colorJson: formattingSettings.TextInput;
     topLevelSlice?: formattingSettings.SimpleSlice<any>;
@@ -12,7 +13,7 @@ export declare class ColorSettings extends SimpleCard {
     descriptionKey: string;
     slices: Array<formattingSettings.Slice>;
 }
-export declare class MarginSettings extends SimpleCard {
+export declare class MarginSettings extends FormattingSettingsSimpleCard {
     leftMargin: formattingSettings.NumUpDown;
     rightMargin: formattingSettings.NumUpDown;
     topMargin: formattingSettings.NumUpDown;
@@ -22,7 +23,7 @@ export declare class MarginSettings extends SimpleCard {
     descriptionKey: string;
     slices: Array<formattingSettings.Slice>;
 }
-export declare class TimeTickerCustomRangesSettings extends formattingSettings.Group {
+export declare class TimeTickerCustomRangesSettings extends FormattingSettingsGroup {
     timepickerUse: formattingSettings.ToggleSwitch;
     timepickerStart: formattingSettings.TextInput;
     timepickerEnd: formattingSettings.TextInput;
@@ -32,7 +33,7 @@ export declare class TimeTickerCustomRangesSettings extends formattingSettings.G
     descriptionKey: string;
     slices: Array<formattingSettings.Slice>;
 }
-export declare class TimeTickerRangesSettings extends formattingSettings.Group {
+export declare class TimeTickerRangesSettings extends FormattingSettingsGroup {
     timeTickerRangesUse: formattingSettings.ToggleSwitch;
     timetTickerRangesPufferLeft: formattingSettings.NumUpDown;
     timeTickerRangesPufferRight: formattingSettings.NumUpDown;
@@ -42,7 +43,7 @@ export declare class TimeTickerRangesSettings extends formattingSettings.Group {
     descriptionKey: string;
     slices: Array<formattingSettings.Slice>;
 }
-export declare class TimeTickerFormattingSettings extends formattingSettings.Group {
+export declare class TimeTickerFormattingSettings extends FormattingSettingsGroup {
     timeTickerFontSize: formattingSettings.NumUpDown;
     timeTickerFormat: formattingSettings.TextInput;
     tickerSpeed: formattingSettings.NumUpDown;
@@ -51,7 +52,7 @@ export declare class TimeTickerFormattingSettings extends formattingSettings.Gro
     descriptionKey: string;
     slices: Array<formattingSettings.Slice>;
 }
-export declare class TimeTickerSetting extends formattingSettings.CompositeCard {
+export declare class TimeTickerSetting extends FormattingSettingsSimpleCard {
     name: string;
     displayNameKey: string;
     descriptionKey: string;
@@ -61,7 +62,7 @@ export declare class TimeTickerSetting extends formattingSettings.CompositeCard 
     timeTickerCustomRangesSettings: TimeTickerCustomRangesSettings;
     groups: formattingSettings.Group[];
 }
-export declare class EventTimeStampSettings extends formattingSettings.Group {
+export declare class EventTimeStampSettings extends FormattingSettingsGroup {
     eventTimeStamp: formattingSettings.ToggleSwitch;
     topLevelSlice?: formattingSettings.SimpleSlice<any>;
     name: string;
@@ -69,7 +70,7 @@ export declare class EventTimeStampSettings extends formattingSettings.Group {
     descriptionKey: string;
     slices: Array<formattingSettings.Slice>;
 }
-export declare class EventGroupingSettings extends formattingSettings.Group {
+export declare class EventGroupingSettings extends FormattingSettingsGroup {
     groupSameEvents: formattingSettings.ToggleSwitch;
     groupSameEventsUseThreshold: formattingSettings.ToggleSwitch;
     groupSameEventsThreshold: formattingSettings.NumUpDown;
@@ -79,7 +80,7 @@ export declare class EventGroupingSettings extends formattingSettings.Group {
     descriptionKey: string;
     slices: Array<formattingSettings.Slice>;
 }
-export declare class EventCustomEventHightSettings extends formattingSettings.Group {
+export declare class EventCustomEventHightSettings extends FormattingSettingsGroup {
     useCustomEventHightSettings: formattingSettings.ToggleSwitch;
     eventHight: formattingSettings.NumUpDown;
     topLevelSlice?: formattingSettings.SimpleSlice<any>;
@@ -88,7 +89,7 @@ export declare class EventCustomEventHightSettings extends formattingSettings.Gr
     descriptionKey: string;
     slices: Array<formattingSettings.Slice>;
 }
-export declare class EventSortingSettings extends formattingSettings.Group {
+export declare class EventSortingSettings extends FormattingSettingsGroup {
     eventSorting: formattingSettings.ToggleSwitch;
     topLevelSlice?: formattingSettings.SimpleSlice<any>;
     name: string;
@@ -96,7 +97,7 @@ export declare class EventSortingSettings extends formattingSettings.Group {
     descriptionKey: string;
     slices: Array<formattingSettings.Slice>;
 }
-export declare class EventSettings extends CompositeCard {
+export declare class EventSettings extends FormattingSettingsCompositeCard {
     name: string;
     displayNameKey: string;
     descriptionKey: string;
@@ -106,7 +107,7 @@ export declare class EventSettings extends CompositeCard {
     eventCustomEventHightSettings: EventCustomEventHightSettings;
     groups: formattingSettings.Group[];
 }
-export declare class YAxisSettings extends CompositeCard {
+export declare class YAxisSettings extends FormattingSettingsCompositeCard {
     name: string;
     displayNameKey: string;
     descriptionKey: string;
@@ -156,5 +157,5 @@ export declare class VisualFormattingSettingsModel extends FormattingSettingsMod
     colorSettings: ColorSettings;
     YAxisSettings: YAxisSettings;
     eventSettings: EventSettings;
-    cards: FormattingSettingsCard[];
+    cards: FormattingSettingsCards[];
 }

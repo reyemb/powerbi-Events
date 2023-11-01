@@ -18,10 +18,12 @@ https://github.com/reyemb/powerbi-Events/assets/60140509/140fc3be-46c2-46b5-ac16
 
 ## Changelog
 
-Version 1.0 - Initial Commit
-Version 1.1:
+ - Version 1.0 - Initial Commit
+ - Version 1.1:
     Functionality to add events to Y-Axis
     Functionality that datetime can be start or end of events
+ - Version 1.2:
+    Moved from community version to https://github.com/microsoft/powerbi-visuals-utils-formattingmodel
 
 ## Changes Version 1.1 MP4
 
@@ -54,7 +56,7 @@ Enable Drillthrough
 
 ## Dependencies
 
-This project relies on a variety of libraries including `d3`, `powerbi-models`, `powerbi-visuals-api`, and `powerbi-visuals-utils-formattingutils`. Special thanks to liprec for their contributions in [this pull request](https://github.com/microsoft/powerbi-visuals-utils-formattingmodel/pull/7). All dependencies can be found in the `package.json` file. Instead of using the original fork, we utilize a community version available [here](https://github.com/reyemb/powerbi-visuals-utils-formattingmodel-community). This version replicates the aforementioned pull request and serves as an alternative since Microsoft has not been actively updating the repository.
+This project relies on a variety of libraries including `d3`, `powerbi-models`, `powerbi-visuals-api`, and `powerbi-visuals-utils-formattingutils`. All dependencies can be found in the `package.json` file. 
 
 ## Feedback and Improvements
 

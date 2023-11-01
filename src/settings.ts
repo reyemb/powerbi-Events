@@ -26,14 +26,15 @@
 
 "use strict";
 import { Subject } from 'rxjs';
-import { formattingSettings} from "powerbi-visuals-utils-formattingmodel-community";
+import { formattingSettings } from "powerbi-visuals-utils-formattingmodel";
 
-import FormattingSettingsCard = formattingSettings.Card;
+import FormattingSettingsCompositeCard = formattingSettings.CompositeCard;
+import FormattingSettingsGroup = formattingSettings.Group;
 import FormattingSettingsModel = formattingSettings.Model;
-import CompositeCard = formattingSettings.CompositeCard;
-import SimpleCard = formattingSettings.SimpleCard;
+import FormattingSettingsSimpleCard = formattingSettings.SimpleCard;
+import FormattingSettingsCards = formattingSettings.Cards;
 
-export class ColorSettings extends SimpleCard {
+export class ColorSettings extends FormattingSettingsSimpleCard {
     public useColorJson = new formattingSettings.ToggleSwitch({
         name: "useColorJson",
         displayNameKey: "UseColorJsonKey",
@@ -55,7 +56,7 @@ export class ColorSettings extends SimpleCard {
     slices: Array<formattingSettings.Slice> = [this.useColorJson, this.colorJson];
 }
 
-export class MarginSettings extends SimpleCard {
+export class MarginSettings extends FormattingSettingsSimpleCard {
     public leftMargin = new formattingSettings.NumUpDown({
         name: "leftMargin",
         displayNameKey: "LeftMarginKey",
@@ -86,7 +87,7 @@ export class MarginSettings extends SimpleCard {
     slices: Array<formattingSettings.Slice> = [this.leftMargin, this.rightMargin, this.topMargin, this.bottomMargin];
 }
 
-export class TimeTickerCustomRangesSettings extends formattingSettings.Group {
+export class TimeTickerCustomRangesSettings extends FormattingSettingsGroup {
     public timepickerUse = new formattingSettings.ToggleSwitch({
         name: "timepickerUse",
         displayNameKey: "TimepickerUseKey",
@@ -114,7 +115,7 @@ export class TimeTickerCustomRangesSettings extends formattingSettings.Group {
     slices: Array<formattingSettings.Slice> = [this.timepickerUse, this.timepickerStart, this.timepickerEnd];
 }
 
-export class TimeTickerRangesSettings extends formattingSettings.Group {
+export class TimeTickerRangesSettings extends FormattingSettingsGroup {
     public timeTickerRangesUse = new formattingSettings.ToggleSwitch({
         name: "timeTickerRangesUse",
         displayNameKey: "TimeTickerRangesUseKey",
@@ -140,7 +141,7 @@ export class TimeTickerRangesSettings extends formattingSettings.Group {
     slices: Array<formattingSettings.Slice> = [this.timetTickerRangesPufferLeft, this.timeTickerRangesPufferRight];
 }
 
-export class TimeTickerFormattingSettings extends formattingSettings.Group {
+export class TimeTickerFormattingSettings extends FormattingSettingsGroup {
     public timeTickerFontSize = new formattingSettings.NumUpDown({
         name: "timeTickerFontSize",
         displayNameKey: "TimeTickerFontSizeKey",
@@ -168,7 +169,7 @@ export class TimeTickerFormattingSettings extends formattingSettings.Group {
 
 }
 
-export class TimeTickerSetting extends formattingSettings.CompositeCard {
+export class TimeTickerSetting extends FormattingSettingsSimpleCard {
     name: string = "timeTickerSetting";
     displayNameKey: string = "timeTickerSettingKey";
     descriptionKey: string = "TimeTickerSettingDescriptionKey";
@@ -179,7 +180,7 @@ export class TimeTickerSetting extends formattingSettings.CompositeCard {
 
     groups: formattingSettings.Group[] = [this.timeTickerFormattingSettings, this.timeTickerRangesSettings, this.timeTickerCustomRangesSettings];
 }
-export class EventTimeStampSettings extends formattingSettings.Group {
+export class EventTimeStampSettings extends FormattingSettingsGroup {
     public eventTimeStamp = new formattingSettings.ToggleSwitch({
         name: "EventTimeStamp",
         displayNameKey: "EventTimeStampKey",
@@ -193,7 +194,7 @@ export class EventTimeStampSettings extends formattingSettings.Group {
     slices: Array<formattingSettings.Slice> = [this.eventTimeStamp];
 }
 
-export class EventGroupingSettings extends formattingSettings.Group {
+export class EventGroupingSettings extends FormattingSettingsGroup {
     public groupSameEvents = new formattingSettings.ToggleSwitch({
         name: "groupEvents",
         displayNameKey: "GroupEventsKey",
@@ -219,7 +220,7 @@ export class EventGroupingSettings extends formattingSettings.Group {
     slices: Array<formattingSettings.Slice> = [this.groupSameEvents, this.groupSameEventsUseThreshold, this.groupSameEventsThreshold];
 }
 
-export class EventCustomEventHightSettings extends formattingSettings.Group {
+export class EventCustomEventHightSettings extends FormattingSettingsGroup{
     public useCustomEventHightSettings = new formattingSettings.ToggleSwitch({
         name: "useCustomEventHightSettings",
         displayNameKey: "UseCustomEventHightSettingsKey",
@@ -239,7 +240,7 @@ export class EventCustomEventHightSettings extends formattingSettings.Group {
     slices: Array<formattingSettings.Slice> = [this.eventHight];
 }
 
-export class EventSortingSettings extends formattingSettings.Group {
+export class EventSortingSettings extends FormattingSettingsGroup {
     public eventSorting = new formattingSettings.ToggleSwitch({
         name: "DoEventSorting",
         displayNameKey: "DoEventSortingSettingsKey",
@@ -253,7 +254,7 @@ export class EventSortingSettings extends formattingSettings.Group {
     slices: Array<formattingSettings.Slice> = [this.eventSorting];
 }
 
-export class EventSettings extends CompositeCard {
+export class EventSettings extends FormattingSettingsCompositeCard {
     name: string = "eventSettings";
     displayNameKey: string = "eventSettingsKey";
     descriptionKey: string = "eventSettingsDescriptionKey";
@@ -266,7 +267,7 @@ export class EventSettings extends CompositeCard {
     groups: formattingSettings.Group[] = [this.eventTimeStampSettings, this.eventSortingSettings, this.eventGroupingSettings, this.eventCustomEventHightSettings];
 }
 
-export class YAxisSettings extends CompositeCard {
+export class YAxisSettings extends FormattingSettingsCompositeCard {
     name: string = "YAxisSettings";
     displayNameKey: string = "YAxisSettingsKey";
     descriptionKey: string = "YAxisSettingsDescriptionKey";
@@ -444,7 +445,7 @@ export class VisualFormattingSettingsModel extends FormattingSettingsModel {
     public colorSettings: ColorSettings = new ColorSettings();
     public YAxisSettings: YAxisSettings = new YAxisSettings();
     public eventSettings: EventSettings = new EventSettings();
-    public cards: FormattingSettingsCard[] = [
+    public cards: FormattingSettingsCards[] = [
         this.marginSettings,
         this.timeTickerSetting,
         this.colorSettings,

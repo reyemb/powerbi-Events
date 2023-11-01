@@ -3,7 +3,7 @@
 import powerbi from "powerbi-visuals-api";
 
 // custom imports
-import { FormattingSettingsService } from "powerbi-visuals-utils-formattingmodel-community";
+import { FormattingSettingsService } from "powerbi-visuals-utils-formattingmodel";
 import { DrawEvents } from './draw';
 import { createDataPoints } from './converter';
 import { addTooltip } from './tooltips';
