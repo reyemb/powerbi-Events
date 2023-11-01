@@ -18,8 +18,8 @@ https://github.com/reyemb/powerbi-Events/assets/60140509/140fc3be-46c2-46b5-ac16
 
 ## Changelog
 
-Version 1.0 - Initial Commit
-Version 1.1:
+ - Version 1.0 - Initial Commit
+ - Version 1.1:
     Functionality to add events to Y-Axis
     Functionality that datetime can be start or end of events
 
