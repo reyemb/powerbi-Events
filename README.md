@@ -14,15 +14,16 @@ Our Events Visual offers real-time monitoring of machine statuses over specified
 
 To evaluate the capabilities of this custom visual, check out the video file at `/demo/demo.mp4`.
 
-
-
 https://github.com/reyemb/powerbi-Events/assets/60140509/140fc3be-46c2-46b5-ac16-09790d068abf
-
-
 
 ## Changelog
 
 Version 1.0 - Initial Commit
+Version 1.1:
+    Functionality to add events to Y-Axis
+    Functionality that datetime can be start or end of events
+
+## Changes Version 1.1 MP4
 
 ## Next Steps
 

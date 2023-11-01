@@ -12,6 +12,7 @@ export declare class Visual implements IVisual {
     private formatterInt;
     private interactivityService;
     private localizationManager;
+    private locale;
     constructor(options: VisualConstructorOptions);
     update(options: powerbi.extensibility.visual.VisualUpdateOptions): void;
     private applySelectionAfterResizing;

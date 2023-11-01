@@ -56,9 +56,18 @@ export declare class TimeTickerSetting extends formattingSettings.CompositeCard 
     displayNameKey: string;
     descriptionKey: string;
     timeTickerFormattingSettings: TimeTickerFormattingSettings;
+    EventCustomEventHightSettings: any;
     timeTickerRangesSettings: TimeTickerRangesSettings;
     timeTickerCustomRangesSettings: TimeTickerCustomRangesSettings;
     groups: formattingSettings.Group[];
+}
+export declare class EventTimeStampSettings extends formattingSettings.Group {
+    eventTimeStamp: formattingSettings.ToggleSwitch;
+    topLevelSlice?: formattingSettings.SimpleSlice<any>;
+    name: string;
+    displayNameKey: string;
+    descriptionKey: string;
+    slices: Array<formattingSettings.Slice>;
 }
 export declare class EventGroupingSettings extends formattingSettings.Group {
     groupSameEvents: formattingSettings.ToggleSwitch;
@@ -91,19 +100,52 @@ export declare class EventSettings extends CompositeCard {
     name: string;
     displayNameKey: string;
     descriptionKey: string;
+    eventTimeStampSettings: EventTimeStampSettings;
     eventSortingSettings: EventSortingSettings;
     eventGroupingSettings: EventGroupingSettings;
     eventCustomEventHightSettings: EventCustomEventHightSettings;
     groups: formattingSettings.Group[];
 }
-export declare class YAxisSettings extends SimpleCard {
-    yAxisFontInnerSize: formattingSettings.NumUpDown;
-    yAxisFontOuterSize: formattingSettings.NumUpDown;
-    yAxisFontOuterShow: formattingSettings.ToggleSwitch;
-    SwitchDatesDevices: formattingSettings.ToggleSwitch;
+export declare class YAxisSettings extends CompositeCard {
     name: string;
     displayNameKey: string;
     descriptionKey: string;
+    YAxisSettingsEventNotOnAxis: YAxisSettingsEventNotOnAxis;
+    YAxisSettingsEventOnAxis: YAxisSettingsEventOnAxis;
+    groups: formattingSettings.Group[];
+}
+export declare class YAxisSettingsEventNotOnAxis extends formattingSettings.Group {
+    yAxisEventNotOnAxisFontInnerSize: formattingSettings.NumUpDown;
+    yAxisEventNotOnAxisFontOuterSize: formattingSettings.NumUpDown;
+    yAxisEventNotOnAxisInnerLabelWidth: formattingSettings.NumUpDown;
+    yAxisEventNotOnAxisOuterLabelWidth: formattingSettings.NumUpDown;
+    yAxisEventNotOnAxisOuterShow: formattingSettings.ToggleSwitch;
+    yAxisEventNotOnAxisInnerShow: formattingSettings.ToggleSwitch;
+    yAxisEventNotOnAxisHierarchy: formattingSettings.ItemDropdown;
+    name: string;
+    displayNameKey: string;
+    descriptionKey: string;
+    slices: Array<formattingSettings.Slice>;
+}
+/**
+ * YAxisSettingsEventOnAxis class
+ */
+export declare class YAxisSettingsEventOnAxis extends formattingSettings.Group {
+    yAxisEventOnAxisEventOnAxis: formattingSettings.ToggleSwitch;
+    yAxisEventOnAxisLevel1FontSize: formattingSettings.NumUpDown;
+    yAxisEventOnAxisLevel1LabelWidth: formattingSettings.NumUpDown;
+    yAxisEventOnAxisLevel2FontSize: formattingSettings.NumUpDown;
+    yAxisEventOnAxisLevel2LabelWidth: formattingSettings.NumUpDown;
+    yAxisEventOnAxisLevel3FontSize: formattingSettings.NumUpDown;
+    yAxisEventOnAxisLevel3LabelWidth: formattingSettings.NumUpDown;
+    yAxisEventOnAxisLevel1Toggle: formattingSettings.ToggleSwitch;
+    yAxisEventOnAxisLevel2Toggle: formattingSettings.ToggleSwitch;
+    yAxisEventOnAxisLevel3Toggle: formattingSettings.ToggleSwitch;
+    yAxisEventOnAxisHierarchy: formattingSettings.ItemDropdown;
+    name: string;
+    displayNameKey: string;
+    descriptionKey: string;
+    topLevelSlice: formattingSettings.ToggleSwitch;
     slices: Array<formattingSettings.Slice>;
 }
 export declare class VisualFormattingSettingsModel extends FormattingSettingsModel {
@@ -112,7 +154,7 @@ export declare class VisualFormattingSettingsModel extends FormattingSettingsMod
     marginSettings: MarginSettings;
     timeTickerSetting: TimeTickerSetting;
     colorSettings: ColorSettings;
-    yAxisSettings: YAxisSettings;
+    YAxisSettings: YAxisSettings;
     eventSettings: EventSettings;
     cards: FormattingSettingsCard[];
 }

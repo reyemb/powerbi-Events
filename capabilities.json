@@ -34,6 +34,9 @@
   "objects": {
     "eventSettings": {
       "properties":{
+        "EventTimeStamp": {
+          "type": {"bool": true}
+        },
         "useCustomEventHightSettings" : {
           "type": {"bool": true}
         },
@@ -117,26 +120,132 @@
           }
         }
       },
-      "yAxis": {
+      "YAxisSettings": {
         "properties": {
-          "yAxisFontOuterShow": {
+          "yAxisEventOnAxisEventOnAxis":
+          {
             "type": {
               "bool": true
             }
           },
-          "yAxisFontInnerSize": {
-            "type": {
-              "numeric": true
-            }
-          },
-          "yAxisFontOuterSize": {
-            "type": {
-              "numeric": true
-            }
-          },
-          "SwitchDatesDevices": {
+          "yAxisEventOnAxisEventOnAxisUse":
+          {
             "type": {
               "bool": true
+            }
+          },
+          "yAxisEventOnAxisLevel1FontSize":
+          {
+            "type": {
+              "numeric": true
+            }
+          },
+          "yAxisEventOnAxisLevel1LabelWidth":
+          {
+            "type": {
+              "numeric": true
+            }
+          },
+          "yAxisEventOnAxisLevel2LabelWidth":
+          {
+            "type": {
+              "numeric": true
+            }
+          },
+          "yAxisEventOnAxisLevel3LabelWidth":
+          {
+            "type": {
+              "numeric": true
+            }
+          },
+          "yAxisEventOnAxisLabelSize":
+          {
+            "type": {
+              "numeric": true
+            }
+          },
+          "YAxisEventNotOnAxisLabelSize":
+          {
+            "type": {
+              "numeric": true
+            }
+          },
+          "yAxisEventNotOnAxisInnerLabelWidth"
+          :{
+            "type": {
+              "numeric": true
+            }
+          },
+          "yAxisEventNotOnAxisOuterLabelWidth":
+          {
+            "type": {
+              "numeric": true
+            }
+          },
+          "yAxisEventOnAxisLevel2FontSize":
+          {
+            "type": {
+              "numeric": true
+            }
+          },
+          "yAxisEventOnAxisLevel3FontSize":
+          {
+            "type": {
+              "numeric": true
+            }
+          },
+          "yAxisEventOnAxisLevel1Toggle":
+          {
+            "type": {
+              "bool": true
+            }
+          },
+          "yAxisEventOnAxisLevel2Toggle":
+          {
+            "type": {
+              "bool": true
+            }
+          },
+          "yAxisEventOnAxisLevel3Toggle":
+          {
+            "type": {
+              "bool": true
+            }
+          },
+          "yAxisEventOnAxisHierarchy":
+          {
+            "type": {
+              "text": true
+            }
+          },
+          "yAxisEventNotOnAxisFontInnerSize":
+          {
+            "type": {
+              "numeric": true
+            }
+          },
+          "yAxisEventNotOnAxisFontOuterSize":
+          {
+            "type": {
+              "numeric": true
+            }
+          },
+          "yAxisEventNotOnAxisOuterShow":
+          {
+            "type": {
+              "bool": true
+            }
+          },
+          "yAxisEventNotOnAxisInnerShow":
+          {
+            "type": {
+              "bool": true
+            }
+          },
+          "yAxisEventNotOnAxisHierarchy":
+          {
+            "type": {
+              "text": true
             }
           }
         }

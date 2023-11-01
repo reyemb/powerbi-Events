@@ -21,7 +21,8 @@
     "powerbi-visuals-utils-formattingmodel-community": "^6.0.0",
     "powerbi-visuals-utils-formattingutils": "^6.0.1",
     "powerbi-visuals-utils-interactivityutils": "^6.0.2",
-    "powerbi-visuals-utils-tooltiputils": "^6.0.1"
+    "powerbi-visuals-utils-tooltiputils": "^6.0.1",
+    "rxjs": "^7.8.1"
   },
   "devDependencies": {
     "ts-loader": "6.1.0",

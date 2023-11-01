@@ -25,7 +25,7 @@
  */
 
 "use strict";
-
+import { Subject } from 'rxjs';
 import { formattingSettings} from "powerbi-visuals-utils-formattingmodel-community";
 
 import FormattingSettingsCard = formattingSettings.Card;
@@ -173,11 +173,24 @@ export class TimeTickerSetting extends formattingSettings.CompositeCard {
     displayNameKey: string = "timeTickerSettingKey";
     descriptionKey: string = "TimeTickerSettingDescriptionKey";
     
-    public timeTickerFormattingSettings = new TimeTickerFormattingSettings(Object);
+    public timeTickerFormattingSettings = new TimeTickerFormattingSettings(Object);EventCustomEventHightSettings 
     public timeTickerRangesSettings = new TimeTickerRangesSettings(Object);
     public timeTickerCustomRangesSettings = new TimeTickerCustomRangesSettings(Object);
 
     groups: formattingSettings.Group[] = [this.timeTickerFormattingSettings, this.timeTickerRangesSettings, this.timeTickerCustomRangesSettings];
+}
+export class EventTimeStampSettings extends formattingSettings.Group {
+    public eventTimeStamp = new formattingSettings.ToggleSwitch({
+        name: "EventTimeStamp",
+        displayNameKey: "EventTimeStampKey",
+        descriptionKey: "EventTimeStampDescriptionKey",
+        value: false,
+    });
+    topLevelSlice?: formattingSettings.SimpleSlice<any> = this.eventTimeStamp;
+    name: string = "EventTimeStampSettings";
+    displayNameKey: string = "EventTimeStampSettingsKey";
+    descriptionKey: string = "EventTimeStampSettingsDescriptionKey";
+    slices: Array<formattingSettings.Slice> = [this.eventTimeStamp];
 }
 
 export class EventGroupingSettings extends formattingSettings.Group {
@@ -185,7 +198,7 @@ export class EventGroupingSettings extends formattingSettings.Group {
         name: "groupEvents",
         displayNameKey: "GroupEventsKey",
         descriptionKey: "GroupEventsDescriptionKey",
-        value: false,
+        value: true,
     });
     public groupSameEventsUseThreshold = new formattingSettings.ToggleSwitch({
         name: "groupSameEventsUseThreshold",
@@ -245,44 +258,183 @@ export class EventSettings extends CompositeCard {
     displayNameKey: string = "eventSettingsKey";
     descriptionKey: string = "eventSettingsDescriptionKey";
     
+    public eventTimeStampSettings = new EventTimeStampSettings(Object);
     public eventSortingSettings = new EventSortingSettings(Object);
     public eventGroupingSettings = new EventGroupingSettings(Object);
     public eventCustomEventHightSettings = new EventCustomEventHightSettings(Object);
 
-    groups: formattingSettings.Group[] = [this.eventSortingSettings, this.eventGroupingSettings, this.eventCustomEventHightSettings];
+    groups: formattingSettings.Group[] = [this.eventTimeStampSettings, this.eventSortingSettings, this.eventGroupingSettings, this.eventCustomEventHightSettings];
 }
 
-export class YAxisSettings extends SimpleCard {
-    public yAxisFontInnerSize = new formattingSettings.NumUpDown({
-        name: "yAxisFontInnerSize",
-        displayNameKey: "yAxisFontInnerSizeKey",
-        descriptionKey: "yAxisFontInnerSizeDescriptionKey",
+export class YAxisSettings extends CompositeCard {
+    name: string = "YAxisSettings";
+    displayNameKey: string = "YAxisSettingsKey";
+    descriptionKey: string = "YAxisSettingsDescriptionKey";
+    
+    public YAxisSettingsEventNotOnAxis = new YAxisSettingsEventNotOnAxis(Object);
+    public YAxisSettingsEventOnAxis = new YAxisSettingsEventOnAxis(Object);
+
+    groups: formattingSettings.Group[] = [this.YAxisSettingsEventNotOnAxis, this.YAxisSettingsEventOnAxis];
+}
+
+export class YAxisSettingsEventNotOnAxis extends formattingSettings.Group {
+    public yAxisEventNotOnAxisFontInnerSize = new formattingSettings.NumUpDown({
+        name: "yAxisEventNotOnAxisFontInnerSize",
+        displayNameKey: "yAxisEventNotOnAxisFontInnerSizeKey",
+        descriptionKey: "yAxisEventNotOnAxisFontInnerSizeDescriptionKey",
         value: 12,
     });
-    public yAxisFontOuterSize = new formattingSettings.NumUpDown({
-        name: "yAxisFontOuterSize",
-        displayNameKey: "yAxisFontOuterSizeKey",
-        descriptionKey: "yAxisFontOuterSizeDescriptionKey",
+    public yAxisEventNotOnAxisFontOuterSize = new formattingSettings.NumUpDown({
+        name: "yAxisEventNotOnAxisFontOuterSize",
+        displayNameKey: "yAxisEventNotOnAxisFontOuterSizeKey",
+        descriptionKey: "yAxisEventNotOnAxisFontOuterSizeDescriptionKey",
         value: 14,
     });
-    public yAxisFontOuterShow = new formattingSettings.ToggleSwitch({
-        name: "yAxisFontOuterShow",
-        displayNameKey: "yAxisFontOuterShowKey",
-        descriptionKey: "yAxisFontOuterShowDescriptionKey",
+    public yAxisEventNotOnAxisInnerLabelWidth = new formattingSettings.NumUpDown({
+        name: "yAxisEventNotOnAxisInnerLabelWidth",
+        displayNameKey: "yAxisEventNotOnAxisInnerLabelWidthKey",
+        descriptionKey: "yAxisEventNotOnAxisInnerLabelWidthDescriptionKey",
+        value: 12,
+    });
+    public yAxisEventNotOnAxisOuterLabelWidth = new formattingSettings.NumUpDown({
+        name: "yAxisEventNotOnAxisOuterLabelWidth",
+        displayNameKey: "yAxisEventNotOnAxisOuterLabelWidthKey",
+        descriptionKey: "yAxisEventNotOnAxisOuterLabelWidthDescriptionKey",
+        value: 12,
+    });
+    public yAxisEventNotOnAxisOuterShow = new formattingSettings.ToggleSwitch({
+        name: "yAxisEventNotOnAxisOuterShow",
+        displayNameKey: "yAxisEventNotOnAxisOuterShowKey",
+        descriptionKey: "yAxisEventNotOnAxisOuterShowDescriptionKey",
         value: true,
     });
-    public SwitchDatesDevices = new formattingSettings.ToggleSwitch({
-        name: "SwitchDatesDevices",
-        displayNameKey: "SwitchDatesDevicesKey",
-        descriptionKey: "SwitchDatesDevicesDescriptionKey",
+    public yAxisEventNotOnAxisInnerShow = new formattingSettings.ToggleSwitch({
+        name: "yAxisEventNotOnAxisInnerShow",
+        displayNameKey: "yAxisEventNotOnAxisInnerShowKey",
+        descriptionKey: "yAxisEventNotOnAxisInnerShowDescriptionKey",
+        value: true,
+    });
+    public yAxisEventNotOnAxisHierarchy = new formattingSettings.ItemDropdown({
+        name: "yAxisEventNotOnAxisHierarchy",
+        displayNameKey: "yAxisEventNotOnAxisHierarchyKey",
+        descriptionKey: "yAxisEventNotOnAxisHierarchyDescriptionKey",
+        items: [
+            {displayName: 'Datum-Device', value: 'time-deviceId'},
+            {displayName: 'Device-Datum', value: 'deviceId-time'}
+        ],
+        value: {displayName: 'Device-Datum', value: 'deviceId-time'}
+    });
+    name = "yAxisEventNotOnAxis";
+    displayNameKey = "yAxisEventNotOnAxisKey";
+    descriptionKey = "yAxisEventNotOnAxisDescriptionKey";
+    slices: Array<formattingSettings.Slice> = [
+        this.yAxisEventNotOnAxisOuterLabelWidth,
+        this.yAxisEventNotOnAxisInnerLabelWidth,
+        this.yAxisEventNotOnAxisHierarchy,
+        this.yAxisEventNotOnAxisFontOuterSize,
+        this.yAxisEventNotOnAxisFontInnerSize,
+        this.yAxisEventNotOnAxisInnerShow,
+        this.yAxisEventNotOnAxisOuterShow
+    ];
+  }  
+    
+/**
+ * YAxisSettingsEventOnAxis class
+ */
+export class YAxisSettingsEventOnAxis extends formattingSettings.Group {
+    public yAxisEventOnAxisEventOnAxis = new formattingSettings.ToggleSwitch({
+        name: "yAxisEventOnAxisEventOnAxis",
+        displayNameKey: "yAxisEventOnAxisEventOnAxisKey",
+        descriptionKey: "yAxisEventOnAxisEventOnAxisDescriptionKey",
         value: false,
     });
-    name = "yAxis";
-    displayNameKey = "yAxisKey";
-    descriptionKey = "yAxisDescriptionKey";
-    slices: Array<formattingSettings.Slice> = [this.SwitchDatesDevices, this.yAxisFontOuterShow, this.yAxisFontOuterSize, this.yAxisFontInnerSize];
-}
-
+    public yAxisEventOnAxisLevel1FontSize = new formattingSettings.NumUpDown({
+        name: "yAxisEventOnAxisLevel1FontSize",
+        displayNameKey: "yAxisEventOnAxisLevel1FontSizeKey",
+        descriptionKey: "yAxisEventOnAxisLevel1FontSizeDescriptionKey",
+        value: 16,
+    });
+    public yAxisEventOnAxisLevel1LabelWidth = new formattingSettings.NumUpDown({
+        name: "yAxisEventOnAxisLevel1LabelWidth",
+        displayNameKey: "yAxisEventOnAxisLevel1LabelWidthKey",
+        descriptionKey: "yAxisEventOnAxisLevel1LabelWidthDescriptionKey",
+        value: 12,
+    });
+    public yAxisEventOnAxisLevel2FontSize = new formattingSettings.NumUpDown({
+        name: "yAxisEventOnAxisLevel2FontSize",
+        displayNameKey: "yAxisEventOnAxisLevel2FontSizeKey",
+        descriptionKey: "yAxisEventOnAxisLevel2FontSizeDescriptionKey",
+        value: 14,
+    });
+    public yAxisEventOnAxisLevel2LabelWidth = new formattingSettings.NumUpDown({
+        name: "yAxisEventOnAxisLevel2LabelWidth",
+        displayNameKey: "yAxisEventOnAxisLevel2LabelWidthKey",
+        descriptionKey: "yAxisEventOnAxisLevel2LabelWidthDescriptionKey",
+        value: 14,
+    });
+    public yAxisEventOnAxisLevel3FontSize = new formattingSettings.NumUpDown({
+        name: "yAxisEventOnAxisLevel3FontSize",
+        displayNameKey: "yAxisEventOnAxisLevel3FontSizeKey",
+        descriptionKey: "yAxisEventOnAxisLevel3FontSizeDescriptionKey",
+        value: 12,
+    });
+    public yAxisEventOnAxisLevel3LabelWidth = new formattingSettings.NumUpDown({
+        name: "yAxisEventOnAxisLevel3LabelWidth",
+        displayNameKey: "yAxisEventOnAxisLevel3LabelWidthKey",
+        descriptionKey: "yAxisEventOnAxisLevel3LabelWidthDescriptionKey",
+        value: 16,
+    });
+    public yAxisEventOnAxisLevel1Toggle = new formattingSettings.ToggleSwitch({
+        name: "yAxisEventOnAxisLevel1Toggle",
+        displayNameKey: "yAxisEventOnAxisLevel1ToggleKey",
+        descriptionKey: "yAxisEventOnAxisLevel1ToggleDescriptionKey",
+        value: true,
+    });
+    public yAxisEventOnAxisLevel2Toggle = new formattingSettings.ToggleSwitch({
+        name: "yAxisEventOnAxisLevel2Toggle",
+        displayNameKey: "yAxisEventOnAxisLevel2ToggleKey",
+        descriptionKey: "yAxisEventOnAxisLevel2ToggleDescriptionKey",
+        value: true,
+    });
+    public yAxisEventOnAxisLevel3Toggle = new formattingSettings.ToggleSwitch({
+        name: "yAxisEventOnAxisLevel3Toggle",
+        displayNameKey: "yAxisEventOnAxisLevel3ToggleKey",
+        descriptionKey: "yAxisEventOnAxisLevel3ToggleDescriptionKey",
+        value: true,
+    });
+    public yAxisEventOnAxisHierarchy = new formattingSettings.ItemDropdown({
+        name: "yAxisEventOnAxisHierarchy",
+        displayNameKey: "yAxisEventOnAxisHierarchyKey",
+        descriptionKey: "yAxisEventOnAxisHierarchyDescriptionKey",
+        items: [
+            {displayName: 'Events-Device-Date', value: 'event-deviceId-time'},
+            {displayName: 'Events-Date-Device', value: 'event-time-deviceId'},
+            {displayName: 'Device-Events-Date', value: 'deviceId-event-time'},
+            {displayName: 'Device-Date-Events', value: 'deviceId-time-event'},
+            {displayName: 'Date-Events-Device', value: 'time-event-deviceId'},
+            {displayName: 'Date-Device-Events', value: 'time-deviceId-event'}
+        ],
+        value: {displayName: 'Events-Device-Date', value: 'event-deviceId-time'}
+    });
+    name = "yAxisEventOnAxis";
+    displayNameKey = "yAxisEventOnAxisKey";
+    descriptionKey = "yAxisEventOnAxisDescriptionKey";
+    topLevelSlice = this.yAxisEventOnAxisEventOnAxis;
+    slices: Array<formattingSettings.Slice> = [
+        this.yAxisEventOnAxisEventOnAxis,
+        this.yAxisEventOnAxisHierarchy,
+        this.yAxisEventOnAxisLevel1FontSize,
+        this.yAxisEventOnAxisLevel2FontSize,
+        this.yAxisEventOnAxisLevel3FontSize,
+        this.yAxisEventOnAxisLevel1LabelWidth,
+        this.yAxisEventOnAxisLevel2LabelWidth,
+        this.yAxisEventOnAxisLevel3LabelWidth,
+        this.yAxisEventOnAxisLevel1Toggle,
+        this.yAxisEventOnAxisLevel2Toggle,
+        this.yAxisEventOnAxisLevel3Toggle
+    ];
+  }
+  
 export class VisualFormattingSettingsModel extends FormattingSettingsModel {
     displayNameKey: string = "FormattingKey";
     discriptionKey: string = "FormattingDescriptionKey";
@@ -290,13 +442,13 @@ export class VisualFormattingSettingsModel extends FormattingSettingsModel {
     public marginSettings: MarginSettings = new MarginSettings();
     public timeTickerSetting: TimeTickerSetting = new TimeTickerSetting();
     public colorSettings: ColorSettings = new ColorSettings();
-    public yAxisSettings: YAxisSettings = new YAxisSettings();
+    public YAxisSettings: YAxisSettings = new YAxisSettings();
     public eventSettings: EventSettings = new EventSettings();
     public cards: FormattingSettingsCard[] = [
         this.marginSettings,
         this.timeTickerSetting,
         this.colorSettings,
-        this.yAxisSettings,
+        this.YAxisSettings,
         this.eventSettings
     ];
 }

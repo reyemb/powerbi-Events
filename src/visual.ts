@@ -40,9 +40,11 @@ export class Visual implements IVisual {
     private formatterInt: (n: number) => string;
     private interactivityService: IInteractivityService<BaseDataPoint> | any;
     private localizationManager: powerbi.extensibility.ILocalizationManager;
+    private locale: string
 
     constructor(options: VisualConstructorOptions) {
         console.log('Visual constructor', options);
+        this.locale = options.host.locale;
         this.localizationManager = options.host.createLocalizationManager();
         this.formattingSettingsService = new FormattingSettingsService(this.localizationManager);
         this.target = options.element;
@@ -52,6 +54,7 @@ export class Visual implements IVisual {
         if (document) {
             this.DrawEvents = new DrawEvents(this.target);
         }
+        
     }
 
 
@@ -84,16 +87,14 @@ export class Visual implements IVisual {
             this.formattingSettings.colorSettings.useColorJson.value,
             this.formattingSettings.colorSettings.colorJson.value
         );
-        
-        const switchDatesDevices : boolean = this.formattingSettings.yAxisSettings.SwitchDatesDevices.value;
 
 
         // Draw the visual
         this.DrawEvents.init(this.formattingSettings, options.viewport);
         this.DrawEvents.drawXAxis(min, max);
-        this.DrawEvents.drawYAxis(dataPoints, switchDatesDevices);
-        this.DrawEvents.drawGroupLabels(dataPoints, switchDatesDevices);
-        const eventBoxes = this.DrawEvents.drawBoxes(dataPoints, switchDatesDevices);
+        this.DrawEvents.drawYAxis(dataPoints);
+        this.DrawEvents.drawGroupLabels(dataPoints);
+        const eventBoxes = this.DrawEvents.drawBoxes(dataPoints);
 
         // Add tooltips
         addTooltip(this.DrawEvents.eventBoxesSelection, this.host, this.localizationManager);
