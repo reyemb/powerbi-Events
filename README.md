@@ -27,9 +27,12 @@ https://github.com/reyemb/powerbi-Events/assets/60140509/140fc3be-46c2-46b5-ac16
 
 ## Changes Version 1.1 MP4
 
+https://github.com/reyemb/powerbi-Events/assets/60140509/b7e6f2cc-887c-43f1-8f46-36994178160a
+
 ## Next Steps
 
-Enable Drillthrough
+-  Enable Drillthrough
+-  Add Localization
 
 ## Installation
 
