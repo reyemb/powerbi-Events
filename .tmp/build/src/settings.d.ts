@@ -52,12 +52,11 @@ export declare class TimeTickerFormattingSettings extends FormattingSettingsGrou
     descriptionKey: string;
     slices: Array<formattingSettings.Slice>;
 }
-export declare class TimeTickerSetting extends FormattingSettingsSimpleCard {
+export declare class TimeTickerSetting extends FormattingSettingsCompositeCard {
     name: string;
     displayNameKey: string;
     descriptionKey: string;
     timeTickerFormattingSettings: TimeTickerFormattingSettings;
-    EventCustomEventHightSettings: any;
     timeTickerRangesSettings: TimeTickerRangesSettings;
     timeTickerCustomRangesSettings: TimeTickerCustomRangesSettings;
     groups: formattingSettings.Group[];
@@ -97,6 +96,14 @@ export declare class EventSortingSettings extends FormattingSettingsGroup {
     descriptionKey: string;
     slices: Array<formattingSettings.Slice>;
 }
+export declare class EventBoxFormattingSettings extends FormattingSettingsGroup {
+    eventBoxStrikeWidth: formattingSettings.NumUpDown;
+    eventBoxColor: formattingSettings.ToggleSwitch;
+    name: string;
+    displayNameKey: string;
+    descriptionKey: string;
+    slices: Array<formattingSettings.Slice>;
+}
 export declare class EventSettings extends FormattingSettingsCompositeCard {
     name: string;
     displayNameKey: string;
@@ -105,6 +112,7 @@ export declare class EventSettings extends FormattingSettingsCompositeCard {
     eventSortingSettings: EventSortingSettings;
     eventGroupingSettings: EventGroupingSettings;
     eventCustomEventHightSettings: EventCustomEventHightSettings;
+    eventBoxFormattingSettings: EventBoxFormattingSettings;
     groups: formattingSettings.Group[];
 }
 export declare class YAxisSettings extends FormattingSettingsCompositeCard {

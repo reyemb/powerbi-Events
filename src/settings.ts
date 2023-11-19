@@ -25,7 +25,6 @@
  */
 
 "use strict";
-import { Subject } from 'rxjs';
 import { formattingSettings } from "powerbi-visuals-utils-formattingmodel";
 
 import FormattingSettingsCompositeCard = formattingSettings.CompositeCard;
@@ -33,6 +32,7 @@ import FormattingSettingsGroup = formattingSettings.Group;
 import FormattingSettingsModel = formattingSettings.Model;
 import FormattingSettingsSimpleCard = formattingSettings.SimpleCard;
 import FormattingSettingsCards = formattingSettings.Cards;
+import { format } from "d3-format";
 
 export class ColorSettings extends FormattingSettingsSimpleCard {
     public useColorJson = new formattingSettings.ToggleSwitch({
@@ -169,12 +169,12 @@ export class TimeTickerFormattingSettings extends FormattingSettingsGroup {
 
 }
 
-export class TimeTickerSetting extends FormattingSettingsSimpleCard {
+export class TimeTickerSetting extends FormattingSettingsCompositeCard {
     name: string = "timeTickerSetting";
     displayNameKey: string = "timeTickerSettingKey";
     descriptionKey: string = "TimeTickerSettingDescriptionKey";
     
-    public timeTickerFormattingSettings = new TimeTickerFormattingSettings(Object);EventCustomEventHightSettings 
+    public timeTickerFormattingSettings = new TimeTickerFormattingSettings(Object); 
     public timeTickerRangesSettings = new TimeTickerRangesSettings(Object);
     public timeTickerCustomRangesSettings = new TimeTickerCustomRangesSettings(Object);
 
@@ -253,6 +253,24 @@ export class EventSortingSettings extends FormattingSettingsGroup {
     descriptionKey: string = "DoEventSortingGroupSettingsDescriptionKey";
     slices: Array<formattingSettings.Slice> = [this.eventSorting];
 }
+export class EventBoxFormattingSettings extends FormattingSettingsGroup {
+    public eventBoxStrikeWidth = new formattingSettings.NumUpDown({
+        name: "eventBoxStrikeWidth",
+        displayNameKey: "eventBoxStrikeWidthSettingsKey",
+        descriptionKey: "eventBoxStrikeWidthSettingsDescriptionKey",
+        value: 1,
+    });
+    public eventBoxColor = new formattingSettings.ToggleSwitch({
+        name: "eventBoxColor",
+        displayNameKey: "eventBoxColorSettingsKey",
+        descriptionKey: "eventBoxColorSettingsDescriptionKey",
+        value: false
+    });
+    name: string = "EventBoxFormatting";
+    displayNameKey: string = "EventBoxFormattingSettingsKey";
+    descriptionKey: string = "EventBoxFormattingSettingsDescriptionKey";
+    slices: Array<formattingSettings.Slice> = [this.eventBoxStrikeWidth, this.eventBoxColor];
+}
 
 export class EventSettings extends FormattingSettingsCompositeCard {
     name: string = "eventSettings";
@@ -263,8 +281,9 @@ export class EventSettings extends FormattingSettingsCompositeCard {
     public eventSortingSettings = new EventSortingSettings(Object);
     public eventGroupingSettings = new EventGroupingSettings(Object);
     public eventCustomEventHightSettings = new EventCustomEventHightSettings(Object);
+    public eventBoxFormattingSettings = new EventBoxFormattingSettings(Object)
 
-    groups: formattingSettings.Group[] = [this.eventTimeStampSettings, this.eventSortingSettings, this.eventGroupingSettings, this.eventCustomEventHightSettings];
+    groups: formattingSettings.Group[] = [this.eventTimeStampSettings, this.eventSortingSettings, this.eventGroupingSettings, this.eventCustomEventHightSettings, this.eventBoxFormattingSettings];
 }
 
 export class YAxisSettings extends FormattingSettingsCompositeCard {

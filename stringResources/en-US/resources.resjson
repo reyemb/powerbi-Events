@@ -106,5 +106,11 @@
   "groupSameEventsThresholdKey": "Treshold grouping",
   "groupSameEventsThresholdDescriptionKey": "Treshold grouping",
   "groupSameEventsUseThresholdKey": "Treshold",
-  "groupSameEventsUseThresholdDescriptionKey": "Treshold"
+  "groupSameEventsUseThresholdDescriptionKey": "Treshold",
+  "eventBoxStrikeWidthSettingsKey": "EventBox Width",
+  "eventBoxStrikeWidthSettingsDescriptionKey": "Adjust EventBox Width 1/10px",
+  "eventBoxColorSettingsKey": "Adjust Border Color",
+  "eventBoxColorSettingsDescriptionKey": "Adjust Border Color to Event Color",
+  "EventBoxFormattingSettingsKey": "Format Event Box",
+  "EventBoxFormattingSettingsDescriptionKey": "Use this to format the Event Box"
 }

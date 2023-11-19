@@ -1,5 +1,5 @@
 {
-		"version": "1.0.2",
+		"version": "1.0.3",
 		"author": {"name":"Reyemb","email":"info@reyemb.io"},
 		"resources": [
 			{
@@ -8,7 +8,7 @@
 				"file": "resources/PowerBI_Events.pbiviz.json"
 			}
 		],
-		"visual": {"name":"Events","displayName":"Events","guid":"PowerBI_Events","visualClassName":"Visual","version":"1.0.2","description":"Events for PowerBI","supportUrl":"https://google.com","gitHubUrl":""},
+		"visual": {"name":"Events","displayName":"Events","guid":"PowerBI_Events","visualClassName":"Visual","version":"1.0.3","description":"Events for PowerBI","supportUrl":"https://google.com","gitHubUrl":""},
 		"metadata": {
 			"pbivizjson": {
 				"resourceId": "rId0"

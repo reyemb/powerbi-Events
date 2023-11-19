@@ -68,7 +68,7 @@ export class DrawEvents {
             this.xScale = d3.scaleTime()
             .domain([
                 startTime.setMinutes(startTime.getMinutes() - this.formattingSettings.timeTickerSetting.timeTickerRangesSettings.timetTickerRangesPufferLeft.value), 
-                endTime.setMinutes(startTime.getMinutes() + this.formattingSettings.timeTickerSetting.timeTickerRangesSettings.timetTickerRangesPufferLeft.value),
+                endTime.setMinutes(startTime.getMinutes() + this.formattingSettings.timeTickerSetting.timeTickerRangesSettings.timeTickerRangesPufferRight.value),
             ])
             .range([5 + this.margin.left, this.viewport.width- this.margin.right - 15]) 
         }
@@ -338,16 +338,31 @@ public drawYAxis(data: IDataPoint[]) {
         else {
             height = this.yScale.bandwidth() - 20 ;
         }
-        this.svg.append("rect")
-            .attr("x", this.xScale(this.sanitizeDate(startTime)))
-            .attr("y", y-5)
-            .attr("width", this.xScale(this.sanitizeDate(endTime)) - this.xScale(this.sanitizeDate(startTime)))
-            .attr("height", height)
-            .attr("fill", color)
-            .attr("stroke", "black")
-            .attr("class", "event-box")
-            .data([rectData])
+        if (this.formattingSettings.eventSettings.eventBoxFormattingSettings.eventBoxColor.value){
+          this.svg.append("rect")
+          .attr("x", this.xScale(this.sanitizeDate(startTime)))
+          .attr("y", y-5)
+          .attr("width", this.xScale(this.sanitizeDate(endTime)) - this.xScale(this.sanitizeDate(startTime)))
+          .attr("height", height)
+          .attr("fill", color)
+          .attr("class", "event-box")
+          .data([rectData]);
         }
+        else {
+          this.svg.append("rect")
+          .attr("x", this.xScale(this.sanitizeDate(startTime)))
+          .attr("y", y-5)
+          .attr("width", this.xScale(this.sanitizeDate(endTime)) - this.xScale(this.sanitizeDate(startTime)))
+          .attr("height", height)
+          .attr("fill", color)
+          // Set the stroke to black or the fill color based on 'condition'
+          .attr("stroke", this.formattingSettings.eventSettings.eventBoxFormattingSettings.eventBoxColor.value ? color : "black")
+          .attr("stroke-width", `${this.formattingSettings.eventSettings.eventBoxFormattingSettings.eventBoxStrikeWidth.value/10}px`)
+          .attr("class", "event-box")
+          .data([rectData]);
+        }
+
+    }
 
 
     public sanitizeDate(input: Date): Date {

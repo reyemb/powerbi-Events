@@ -4,7 +4,7 @@
         "displayName": "Events",
         "guid": "PowerBI_Events",
         "visualClassName": "Visual",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "description": "Events for PowerBI",
         "supportUrl": "https://google.com",
         "gitHubUrl": ""

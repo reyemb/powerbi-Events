@@ -92,7 +92,7 @@ export function createDataPoints(dataview: any, host: any, timeFieldIndex: numbe
 function getMinMaxTime(dates) {
     let sortedTimes = dates.map(dateStr => {
         let date = new Date(dateStr);
-        return date.getUTCHours() * 60 + 120 + date.getUTCMinutes();
+        return date.getUTCHours() * 60 + 60 + date.getUTCMinutes();
     }).sort((a, b) => a - b);
 
     function toHHMM(minutes) {

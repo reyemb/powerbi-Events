@@ -18,12 +18,15 @@ https://github.com/reyemb/powerbi-Events/assets/60140509/140fc3be-46c2-46b5-ac16
 
 ## Changelog
 
- - Version 1.0 - Initial Commit
- - Version 1.1:
+ - Version 1.0.0 - Initial Commit
+ - Version 1.0.1:
     Functionality to add events to Y-Axis
     Functionality that datetime can be start or end of events
- - Version 1.2:
+ - Version 1.0.2:
     Moved from community version to https://github.com/microsoft/powerbi-visuals-utils-formattingmodel
+ - Version 1.0.2:
+    Added new formattingoptions to allow user to set color of eventboxes border and the corresponding width
+    Repaired some errors
 
 ## Changes Version 1.1 MP4
 

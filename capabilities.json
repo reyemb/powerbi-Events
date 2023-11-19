@@ -46,6 +46,12 @@
         "DoEventSorting": {
           "type": {"bool": true}
         },
+        "eventBoxStrikeWidth": {
+          "type": {"numeric": true}
+        },
+        "eventBoxColor": {
+          "type": {"bool": true}
+        },
         "groupEvents": {
           "type": {"bool": true}
         },
