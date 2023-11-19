@@ -24,7 +24,7 @@ https://github.com/reyemb/powerbi-Events/assets/60140509/140fc3be-46c2-46b5-ac16
     Functionality that datetime can be start or end of events
  - Version 1.0.2:
     Moved from community version to https://github.com/microsoft/powerbi-visuals-utils-formattingmodel
- - Version 1.0.2:
+ - Version 1.0.3:
     Added new formattingoptions to allow user to set color of eventboxes border and the corresponding width
     Repaired some errors
 
